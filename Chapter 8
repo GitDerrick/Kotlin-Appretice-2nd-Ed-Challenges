@@ -1,0 +1,94 @@
+// Mini Exercise 1.1
+  fun main() {
+      val players = mutableListOf("Alice", "Bob", "Cindy", "Dan")
+      players.add("Eli")
+      players += "Gina"
+      players.add(5, "Frank")
+      players.remove("Gina")
+      players.removeAt(2)
+      val danIndex = players.indexOf("Dan")
+      println("The index of Dan is $danIndex in ${players.toString()}")
+  }
+
+// Mini Exercise 2.1
+  fun main() {
+      val players = mutableListOf("Alice", "Anna", "Bob", "Dan", "Franklin")
+      val scores = listOf(2, 2, 8, 6, 1)
+      
+      for (player in players) {
+          println("$player has a score of: ${scores[players.indexOf(player)]}")
+      }
+      for ((index, player) in players.withIndex()) {
+          println("$player has a score of ${scores[index]}")
+      }
+  }
+
+// Challenge 2
+  fun main() {
+      val list1 = mutableListOf(2, 3, 5, 9, 3, 6)
+      val num = 3
+
+      fun removeOne(item: Int, list: MutableList<Int>): List<Int> {
+          list.remove(item)
+          return list
+      }
+
+      println(list1)
+      println("Removing $num from ${list1.joinToString()} becomes ${removeOne(num, list1)}")
+  }
+
+// Challenge 3
+  fun main() {
+      val list1 = mutableListOf(2, 3, 5, 9, 3, 6)
+      val num = 3
+
+      fun remove(item: Int, list: MutableList<Int>): List<Int> {
+          list.removeAll(listOf(item))
+          return list
+      }
+
+      println(list1)
+      println("Removing $num from ${list1.joinToString()} becomes ${remove(num, list1)}")
+  }
+
+// Challenge 4
+  fun main() {
+      val list1 = mutableListOf(2, 3, 5, 9, 3, 6)
+      val num = 3
+
+      fun reverse(list: MutableList<Int>): List<Int> {
+          var newList: MutableList<Int> = mutableListOf()
+          for (x in list) {
+              newList.add(0, x)
+          }
+          return newList
+      }
+
+      println(list1)
+      println(reverse(list1))
+  }
+
+// Challenge 5
+  import java.util.Random
+
+  fun main() {
+      val array1: Array<Int> = arrayOf(1,2,3,4,5)
+      val random = Random()
+
+      fun rand(from: Int, to: Int): Int {
+          return random.nextInt(to-from) + from
+      }
+
+      fun randomized(array: Array<Int>): Array<Int> {
+          var workingList = array.toMutableList()
+          var tempArray: Array<Int> = arrayOf()
+              while (workingList.size > 0) {
+                  val tempNum = rand(0, workingList.size)
+                  tempArray += workingList[tempNum]
+                  workingList.removeAt(tempNum)
+              }
+          return tempArray
+      }
+
+      println("${array1.joinToString()} randomized is ${randomized(array1).joinToString()}")
+  }
