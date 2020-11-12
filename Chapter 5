@@ -1,0 +1,79 @@
+// Mini Exercise 1.1
+  fun main() {
+      val range = 1..10
+      for (i in range) {
+          println(i*i)
+      }
+  }
+
+// Mini Exercise 1.2
+  import kotlin.math.sqrt
+
+  fun main() {
+      val range = 1..10
+      for (i in range) {
+          val j = i.toDouble()
+          println(sqrt(j))
+      }
+  }
+
+// Mini Exercise 1.3
+  fun main() {
+      var sum = 0
+      for (row in 1 until 8 step 2) {
+          for (column in 0 until 8) {
+              sum += row * column
+          }
+          println(sum)
+      }
+  }
+
+// Mini Exercise 2.1
+  fun main() {
+      val age = 1
+      when {
+          age in (0..2) -> println("Infant")
+          age in (3..12) -> println("Child")
+          age in (13..19) -> println("Teenager")
+          age in (20..39) -> println("Adult")
+          age in (40..60) -> println("Middle aged")
+          age >= 61 -> println("Elderly")
+      }
+  }
+
+// Mini Exercise 2.2
+  fun main() {
+      val person = Pair("Derrick", 35)
+      val age = person.second
+      var lifeStage = "unborn"
+      when {
+          age in (0..2) -> lifeStage = "Infant"
+          age in (3..12) -> lifeStage = "Child"
+          age in (13..19) -> lifeStage = "Teenager"
+          age in (20..39) -> lifeStage = "Adult"
+          age in (40..60) -> lifeStage = "Middle aged"
+          age >= 61 -> lifeStage = "Elderly"
+      }
+      println("${person.first} is an $lifeStage")
+  }
+
+// Challenge #5
+  fun main() {
+      var count = 10
+      println(count)
+      while (count > 0) {
+          count -= 1
+          println(count)
+      }
+  }
+
+// Challenge #6
+  var count = 0.0
+      print(count)
+      while (count < 10) {
+          count += 1
+          print(", ${count/10}")
+      }
+
+  // Info on why this isn't straight forward:
+  // https://floating-point-gui.de/
