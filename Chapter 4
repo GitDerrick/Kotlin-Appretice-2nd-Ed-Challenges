@@ -1,0 +1,158 @@
+// Mini Exercise 1.2
+  fun main() {
+    val myAge=35
+    val theirAge = 30
+    val isTeenager = (13 <= myAge && myAge <= 19) && (13 <= theirAge && theirAge <= 19)
+    println(isTeenager)
+  }
+ 
+// MIni Exercise 1.4
+  fun main() {
+    val reader = "Derrick McKay"
+    val author = "Richard Lucas"
+    val authorIsReader = reader == author
+    val readerBeforeAuthor = reader < author
+    println(authorIsReader)
+  }
+
+// Mini Exercise 2.1
+  fun main() {
+    val myAge = 38
+    if (myAge >= 13 && myAge <= 19) println("Teenager") else println("Not a Teenager")
+  }
+  
+// Mini Exercise 3.1
+  fun main() {
+    var counter = 0
+    while ( counter < 10) {
+        println(counter)
+        counter += 1
+    }
+  }
+
+// Mini Exercise 3.2
+import kotlin.random.Random
+
+fun main() {
+    var counter = 0
+    var roll = 0
+    do {
+        roll = Random.nextInt(6)
+        counter += 1
+    } while (roll != 0)
+    println(counter)
+  }
+  
+//Challenges: #3:
+  fun main() {
+    val position = Pair(7, 7) // (Column, Row)
+    var newColumn = position.first
+    var newRow = position.second
+    if (newColumn < 7) { // Check to see if at end of Row
+        newColumn += 1   //if not, then move 1 over
+    } else {
+        newColumn = 0  // if so, then move 1 row down and back to 0
+        newRow += 1
+    }
+    if (newRow == 8) newRow = 0 // Resetting row back to top
+    val newPosition = Pair(newColumn, newRow)
+    println("Position $position becomes $newPosition")
+  }
+  
+// Challenge #4:
+  import kotlin.math.pow
+  import kotlin.math.sqrt
+
+  fun main() {
+      val a = 1.0
+      val b = 5.0
+      val c = 3.0
+      var plusSolution = 0.0
+      var minusSolution = 0.0
+      if ((b.pow(2) - (4*a*c)) < 0) {
+           println("There is no answer")
+      } else {
+          plusSolution = (-b + sqrt(b.pow(2) - 4 * a * c)) / (2 * a)
+          minusSolution = (-b - sqrt(b.pow(2) - 4 * a * c)) / (2 * a)
+          if (plusSolution == minusSolution) {
+              println("The answer is $plusSolution")
+          } else {
+              println("The answers are $plusSolution and $minusSolution")
+          }
+      }
+    }
+  
+// Challenge #5:
+ fun main() {
+    val month = "february"
+    val year = 400
+
+    if (month == "january" || month == "march" || month =="may" || month =="july" || month =="august" || month =="october" || month =="december") {
+        println("The number of days in $month are 31")
+    } else if (month == "february") {
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+            println("The number of days in $month are 29")
+        } else println("The number of days in $month are 28")
+    } else println("The number of days in $month are 30")
+  }
+  
+// Challenge #7:
+  import kotlin.math.pow
+
+  fun main() {
+      var power = 0
+      while (power <= 10) {
+          println("2 ^ $power is: ${2.0.pow(power)}")
+          power += 1
+      }
+  }
+
+// Challenge #8:
+  fun main() {
+      val n = 7
+      var counter = 3
+      var answer = 1
+      var prevAnswer = 1
+      if (n == 1 || n == 2) {
+          println("Fibonacci #$n is: 1")
+      } else {
+          while (counter <= n) {
+              val tempAnswer = answer
+              answer += prevAnswer
+              prevAnswer = tempAnswer
+              counter += 1
+          }
+      }
+      println("Fibonacci #$n is: $answer")
+  }
+
+// Challenge #9:
+  fun main() {
+      val n = 6
+      var counter = 1
+      var answer = 1
+      while (counter <= n) {
+          answer *= counter
+          counter += 1
+      }
+      println("$n! is $answer")
+  }
+
+// Challenge #10:
+  fun main() {
+      val number = 8
+      var counter = 0
+      var successfulRoll = 0
+      var dice1Roll = 1
+      var dice2Roll = 1
+      while (dice1Roll <= 6) {
+          while (dice2Roll <= 6) {
+              if (dice1Roll + dice2Roll == number) successfulRoll += 1
+              counter +=1
+              dice2Roll +=1
+          }
+          dice2Roll = 1 // need to reset the inner while loop
+          dice1Roll +=1
+      }
+      println("The odds of rolling a $number are $successfulRoll/$counter")
+  }
