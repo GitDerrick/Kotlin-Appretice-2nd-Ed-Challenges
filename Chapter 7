@@ -1,0 +1,38 @@
+// Mini exercise 2.2
+  fun main() {
+      var myFavoriteSong: String? = null
+      val parsedInt = "dog".toIntOrNull()
+      if (myFavoriteSong != null) {
+          println(myFavoriteSong)
+      } else {
+          println("I don't have a favorite song")
+      }
+  }
+
+// Challenge 2
+  fun main() {
+      val number = 10
+      val divisor = 3
+
+      fun divideIfWhole(number: Int, divisor: Int):Int? {
+          return if (number % divisor == 0) number/divisor else null
+      }
+
+      if (divideIfWhole(number, divisor) != null) {
+          println("Yep, it divides ${divideIfWhole(number, divisor)} times.")
+      } else { println("Not divisible :[") }
+  }
+
+// Challenge 3
+  fun main() {
+      val number = 10
+      val divisor = 2
+
+      fun divideIfWhole(number: Int, divisor: Int):Int? {
+          return if (number % divisor == 0) number/divisor else null
+      }
+      val mustHaveResult = divideIfWhole(number, divisor) ?: 0
+      if (mustHaveResult != 0) {
+          println("It divides $mustHaveResult times")
+      } else println(mustHaveResult)
+  }
