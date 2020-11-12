@@ -1,0 +1,29 @@
+// Challenge 7:
+  fun main() {
+      val position: Int = 63
+      val row = position / 8
+      val column = position % 8
+      println("Position is $position.")
+      println("Row is $row.")
+      println("Column is $column")
+  }
+
+// Challenge 8:
+  import kotlin.math.PI
+
+  fun main() {
+      val degrees: Double = 89.0
+      val radians = degrees*2* PI/360
+  }
+
+//Challenge 9:
+  import kotlin.math.*
+
+  fun main() {
+      val x1 = 4.0
+      val x2 = 9.0
+      val y1 = -3.0
+      val y2 = 4.0
+      val distance = sqrt((x2 - x1).pow(2) + (y2 - y1).pow(2))
+      println(distance)
+  }
