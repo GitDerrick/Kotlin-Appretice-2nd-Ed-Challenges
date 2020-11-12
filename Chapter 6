@@ -1,0 +1,70 @@
+// Mini Exercise 1.2
+  fun main() {
+      fun printFullName (firstName: String, lastName: String) {
+          println("$firstName $lastName")
+      }
+      printFullName("Jim", "Jones")
+  }
+
+// Mini Exercise 1.3
+  fun main() {
+      fun calculateFullName (firstName: String, lastName: String): String {
+          val fullName = "$firstName $lastName"
+          return fullName
+      }
+      println(calculateFullName("Jim", "Jones"))
+  }
+
+// Mini Exercise 1.4
+  fun main() {
+      fun calculateFullName (firstName: String, lastName: String): Pair<String, Int> {
+          return Pair("$firstName $lastName", firstName.length + lastName.length)
+      }
+      println(calculateFullName("Jim", "Jones"))
+  }
+
+// Challenge 1
+  import kotlin.math.sqrt
+
+  fun main() {
+
+      val number = 8893
+
+      fun isNumberDivisible(number: Int, divisor: Int) : Boolean {
+          return number % divisor == 0
+      }
+
+      fun isPrime(number: Int): Boolean {
+          val doubleNumber = number.toDouble()
+          println("Range is $number to ${sqrt(doubleNumber)}.toInt()")
+          while (true) {
+              if (number <= 0) {
+                  return false
+              }
+              for (x in 2..sqrt(doubleNumber).toInt()) {
+                  return !isNumberDivisible(number, x)
+              }
+          }
+      }
+
+      println("Is $number prime? ${isPrime(number)}")
+  }
+
+// Challenge 2
+  fun main() {
+      val number = 10
+      var counter = 0
+
+      fun fibonacci(number:Int): Int {
+          if (number == 1 || number == 2) return 1
+          if (number <= 0) return 0
+          var returnValue = 0
+          repeat(number) {
+              returnValue = fibonacci(number - 1) + fibonacci(number - 2)
+              counter += 1
+          }
+          return returnValue
+      }
+      println("The fibonacci number of $number is ${fibonacci(number)}!")
+      println("It took $counter many cycles!")  // shows how inefficient this is
+  }
