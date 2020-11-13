@@ -80,14 +80,14 @@
       }
 
       fun randomized(array: Array<Int>): Array<Int> {
-          var workingList = array.toMutableList()
+          var workingList = array.toMutableList()  // Turn the array into an editable list
           var tempArray: Array<Int> = arrayOf()
               while (workingList.size > 0) {
-                  val tempNum = rand(0, workingList.size)
-                  tempArray += workingList[tempNum]
-                  workingList.removeAt(tempNum)
+                  val tempNum = rand(0, workingList.size)  //Get random number within index size of mutable list
+                  tempArray += workingList[tempNum]    //Add random element to new array
+                  workingList.removeAt(tempNum)    //remove element from mutable list to avoid repeats
               }
-          return tempArray
+          return tempArray   // returns new randomized array from original array without repeats
       }
 
       println("${array1.joinToString()} randomized is ${randomized(array1).joinToString()}")
