@@ -92,3 +92,20 @@
 
       println("${array1.joinToString()} randomized is ${randomized(array1).joinToString()}")
   }
+
+// Challenge 6
+  fun main() {
+      val array1: Array<Int> = arrayOf(1,2,3,4,5)
+
+      fun minMax(numbers: Array<Int>): Pair<Int?, Int?> {
+          var max = Int.MIN_VALUE
+          var min = Int.MAX_VALUE
+          for (i in numbers) {
+              if (i > max) max = i
+              if (i < min) min = i
+          }
+          return Pair(min, max)
+      }
+
+      println("The (min, max) of (${array1.joinToString()}) is ${minMax(array1)}")
+  }
