@@ -1,0 +1,22 @@
+// Mini Exercise 1.1
+  fun main() {
+      val bobData = mutableMapOf(
+              "name" to "Bob",
+              "profession" to "CardPlayer",
+              "country" to "USA")
+      bobData.put("state","CA")
+      bobData["city"]="San Francisco"
+
+      println("Bob is from ${bobData["city"]}, ${bobData["state"]}")
+  }
+
+// Challenge 2
+  fun main() {
+      val map1 = mutableMapOf("NY" to "New York", "CA" to "California", "WA" to "Wasshington", "OR" to "Oregon", "PA" to "Pennsylvania", "MA" to "Massacheusettes", "NY" to "New York", "ID" to "Idaho")
+      for (stateName in map1.values) {
+          if (stateName.length > 8) {
+              print("$stateName, ")
+          }
+      }
+      println()
+  }
