@@ -20,3 +20,42 @@
       }
       println()
   }
+
+// Challenge 3
+  fun main() {
+      val stateMap1 = mapOf("ID" to "Idaho", "CA" to "California", "WA" to "Washington", "OR" to "Oregon")
+      val stateMap2 = mapOf("NE" to "Nevada", "UT" to "Utah", "AZ" to "Arizona", "CO" to "Colorado", "ID" to "Idaho", "WA" to "Washington")
+
+      fun mergeMaps(map1: Map<String, String>, map2: Map<String, String>): Map<String, String> {
+          var newMap = map1.toMutableMap()
+          for (state in map2.keys) {
+              if (state !in newMap.keys) {
+                  // newMap.put(state, map2[state].toString())  //this works as well
+                  newMap[state] = map2[state].toString()
+              }
+          }
+          return newMap
+      }
+
+      println("the maps combined is: ${mergeMaps(stateMap1, stateMap2)}")
+  }
+  
+// Challenge 4
+    fun main() {
+      val newString = "the giant ate three humans and a cow for dinner"
+
+      fun occurrencesOfCharacters(text: String): Map<Char, Int> {
+          val mapOfCharacters = mutableMapOf<Char, Int>()
+          for (letter in text) {
+              if (letter !in mapOfCharacters.keys) {
+                  mapOfCharacters[letter] = mapOfCharacters.getOrDefault(letter, 0) + 1
+              } else {
+                  mapOfCharacters[letter] = mapOfCharacters.getValue(letter) + 1
+              }
+
+          }
+          return mapOfCharacters
+      }
+      println("The map of character occurrence is:" + occurrencesOfCharacters(newString))
+  }
+
