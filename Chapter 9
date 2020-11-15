@@ -59,3 +59,29 @@
       println("The map of character occurrence is:" + occurrencesOfCharacters(newString))
   }
 
+// Challenge 5
+  fun main() {
+      val newMap = mapOf("one" to 1, "two" to 2, "three" to 3, "four" to 3)
+
+      fun isInvertible(map: Map<String, Int>): Boolean {
+          val newSet = mutableSetOf<Int>()
+          for (x in map.values) {
+              newSet.add(x)
+          }
+          return newSet.size == map.size
+      }
+
+      println("Are the values in the map ${newMap.toString()} unique? ${isInvertible(newMap)}")
+  }
+
+// Challenge 6
+  fun main() {
+      val nameTitleLookup: MutableMap<String, String?> = mutableMapOf("Mary" to "Engineer", "Patrick" to "Intern", "Ray" to "Hacker")
+
+      nameTitleLookup["Patrick"] = null
+      nameTitleLookup.remove("Ray", "Hacker")
+
+      println(nameTitleLookup)
+  }
+  
+  
