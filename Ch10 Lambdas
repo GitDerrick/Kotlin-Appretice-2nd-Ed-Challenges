@@ -1,0 +1,29 @@
+// Mini Exercise 1
+  fun main() {
+      val nameList = listOf("John", "Jacob", "Jingleheimer", "Schmidt")
+      var myNameToo = nameList.fold("") {a, b -> a + b}
+      println(myNameToo)
+  }
+
+// Mini Exercise 2
+  fun main() {
+      val nameList = listOf("John", "Jacob", "Jingleheimer", "Schmidt")
+      val onlyLongNames = nameList.filter {it.length > 4}
+      val myNameToo = onlyLongNames.fold("") {a, b -> a + b}
+      println(myNameToo)
+  }
+
+// Mini Exercise 3
+  fun main() {
+      val namesAndAges = mapOf("John" to 30, "Jake" to 14, "Bertha" to 8, "Cindy" to 25)
+      val newMap = namesAndAges.filter {it.value < 18}
+      println(newMap)
+  }
+
+// Mini Exercise 4
+  fun main() {
+      val namesAndAges = mapOf("John" to 30, "Jake" to 14, "Bertha" to 8, "Cindy" to 25)
+      val adultsMap = namesAndAges.filter {it.value >= 18}
+      val adultList = adultsMap.map{it.key}
+      println(adultList)
+  }
