@@ -8,8 +8,7 @@
 // Mini Exercise 2
   fun main() {
       val nameList = listOf("John", "Jacob", "Jingleheimer", "Schmidt")
-      val onlyLongNames = nameList.filter {it.length > 4}
-      val myNameToo = onlyLongNames.fold("") {a, b -> a + b}
+      val myNameToo = nameList.filter {it.length > 4}.fold("") {a, b -> a+ b}
       println(myNameToo)
   }
 
@@ -23,7 +22,17 @@
 // Mini Exercise 4
   fun main() {
       val namesAndAges = mapOf("John" to 30, "Jake" to 14, "Bertha" to 8, "Cindy" to 25)
-      val adultsMap = namesAndAges.filter {it.value >= 18}
-      val adultList = adultsMap.map{it.key}
+      val adultList = namesAndAges.filter {it.value >= 18}.map{it.key}
       println(adultList)
   }
+
+// Challenge 1
+  fun main() {
+      val lambdaTask = {a: String -> println(a)}
+
+      fun repeatTask(times: Int, a: String, task: (String) -> Unit) {
+          repeat(times) {task(a)}
+      }
+      repeatTask(10, "Kotlin Apprentice is a great book!", lambdaTask)
+  }
+
