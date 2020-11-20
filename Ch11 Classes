@@ -1,0 +1,49 @@
+// Mini Exercise 1
+  fun main() {
+      class Person(var firstName: String, var lastName: String) {
+          val fullName
+              get() = "$firstName $lastName"
+      }
+      val john = Person(firstName = "Johnny", lastName = "Appleseed")
+
+      var homeOwner = john
+      john.firstName = "John"
+      john.lastName = "Doe"
+
+      println(john.fullName)  //> John Doe
+      println(homeOwner.fullName)  //> John Doe
+  }
+
+// Mini Exercise 3
+  fun main() {
+      class Grade(val letter: String, val points: Double, val credits: Double)
+
+      class Student(
+          val firstName: String,
+          val lastName: String,
+          val grades: MutableList<Grade> = mutableListOf(),
+          var credits: Double = 0.0,
+          var pointsTotal: Double = 0.0) {
+
+              fun recordGrade(grade: Grade) {
+                  grades.add(grade)
+                  credits += grade.credits
+                  pointsTotal += grade.points // I had to add this to get the GPA
+              }
+
+          val gPA
+              get() = pointsTotal/credits
+
+      }
+
+      val jane = Student(firstName = "Jane", lastName = "Appleseed")
+      val history = Grade(letter = "B", points = 9.0, credits = 3.0)
+      var math = Grade(letter = "A", points = 16.0, credits = 4.0)
+
+      jane.recordGrade(history)
+      jane.recordGrade(math)
+
+      println("Jane's grades is: ${jane.gPA}")
+  }
+
+//
