@@ -36,3 +36,18 @@
       repeatTask(10, "Kotlin Apprentice is a great book!", lambdaTask)
   }
 
+// Challenge 3
+  fun main() {
+      val appRatings = mapOf(
+              "Calendar Pro" to arrayOf(1, 5, 5, 4, 2, 1, 5, 4),
+              "The Messenger" to arrayOf(5, 4, 2, 5, 4, 1, 1, 2),
+              "Socialise" to arrayOf(2, 1, 2, 2, 1, 2, 4, 2)
+      )
+
+      // val averageRatings = appRatings.forEach{ (k,v) -> v.reduce { acc, i -> acc + i }/v.size} // returns Unit, not Map
+      val averageRatings = appRatings.mapValues { it.value.average() } // best method
+      // val averageRatings = appRatings.mapValues { (_, v) -> v.reduce{acc, i -> acc+i}/v.size } // closest to instructions
+
+      println(averageRatings)
+      println(averageRatings.filterValues { it > 3 })
+  }
